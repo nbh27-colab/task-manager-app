@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: Kiến Trúc & Tính Năng Ứng Dụng Quản Lý Tác Vụ AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flowchart-node {
+            border: 2px solid;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .flowchart-node:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .flowchart-arrow {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background-color: #94a3b8;
+            margin: 2rem 0;
+        }
+        .flowchart-arrow::after {
+            content: '▼';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #94a3b8;
+        }
+        .file-tree div {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .file-tree div::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0.5rem;
+            bottom: 0;
+            width: 1px;
+            background: #cbd5e1;
+        }
+        .file-tree div:last-child::before {
+             height: 1em;
+        }
+        .file-tree span::before {
+            content: '— ';
+            color: #94a3b8;
+        }
+        .file-tree .folder::before {
+            content: '📁 ';
+        }
+         .file-tree .file::before {
+            content: '📄 ';
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-gradient-to-r from-[#003f5c] to-[#665191] text-white p-8 text-center shadow-lg">
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-2">Phân Tích Sâu Ứng Dụng Quản Lý Tác Vụ AI</h1>
+        <p class="text-lg md:text-xl font-light max-w-3xl mx-auto">Một cái nhìn toàn diện về kiến trúc, luồng dữ liệu và các tính năng thông minh.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="tech-stack" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">Nền Tảng Công Nghệ Cốt Lõi</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-2">🚀</div><span class="font-bold">FastAPI</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-2">🗄️</div><span class="font-bold">SQLAlchemy</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-2">🛡️</div><span class="font-bold">Pydantic</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-2">🔗</div><span class="font-bold">LangChain</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-2">🧠</div><span class="font-bold">ChromaDB</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-4xl mb-2">📈</div><span class="font-bold">Chart.js</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture" class="mb-16 bg-white p-6 md:p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">Cấu Trúc Kiến Trúc Module</h2>
+            <div class="bg-gray-50 p-6 rounded-lg font-mono text-sm md:text-base border border-gray-200">
+                <div class="file-tree">
+                    <span class="folder">.</span>
+                    <div><span class="file">main.py</span></div>
+                    <div>
+                        <span class="folder">api/</span>
+                        <div><span class="folder">endpoints/</span></div>
+                        <div><span class="folder">schemas/</span></div>
+                        <div><span class="file">dependencies.py</span></div>
+                    </div>
+                     <div>
+                        <span class="folder">database/</span>
+                        <div><span class="file">connection.py</span></div>
+                        <div><span class="file">models.py</span></div>
+                        <div><span class="file">crud.py</span></div>
+                        <div><span class="file">vectordb.py</span></div>
+                    </div>
+                     <div>
+                        <span class="folder">core/</span>
+                         <div><span class="file">config.py</span></div>
+                         <div><span class="file">security.py</span></div>
+                    </div>
+                     <div>
+                        <span class="folder">services/</span>
+                         <div><span class="file">task_service.py</span></div>
+                    </div>
+                     <div>
+                        <span class="folder">ai/</span>
+                        <div><span class="file">features.py</span></div>
+                        <div><span class="folder">models/</span></div>
+                    </div>
+                    <div><span class="file">requirements.txt</span></div>
+                    <div><span class="file">.env</span></div>
+                </div>
+            </div>
+            <p class="mt-6 text-center text-gray-600">Kiến trúc được chia thành các module chức năng rõ ràng (API, Database, Core, Services, AI), thúc đẩy khả năng bảo trì và mở rộng.</p>
+        </section>
+
+        <section id="user-flow" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#2f4b7c]">Luồng Xác Thực & Quản Lý Người Dùng</h2>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <div class="flex flex-col items-center">
+                    <div class="flowchart-node border-[#2f4b7c] text-[#2f4b7c] bg-blue-50">Client Gửi Yêu Cầu (Đăng Ký / Đăng Nhập)</div>
+                    <div class="flowchart-arrow"></div>
+                    <div class="flowchart-node border-[#665191] text-[#665191] bg-purple-50">API Endpoint Xử Lý Request</div>
+                    <div class="flowchart-arrow"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                        <div class="flex flex-col items-center p-4 border border-dashed rounded-lg">
+                            <h3 class="font-bold mb-4">Đăng Ký</h3>
+                            <div class="flowchart-node text-sm border-gray-400">Kiểm tra Email</div>
+                            <div class="flowchart-arrow"></div>
+                            <div class="flowchart-node text-sm border-gray-400">Băm Mật Khẩu</div>
+                            <div class="flowchart-arrow"></div>
+                             <div class="flowchart-node text-sm border-gray-400">Lưu vào Database</div>
+                        </div>
+                        <div class="flex flex-col items-center p-4 border border-dashed rounded-lg">
+                             <h3 class="font-bold mb-4">Đăng Nhập</h3>
+                             <div class="flowchart-node text-sm border-gray-400">Tìm User theo Email</div>
+                             <div class="flowchart-arrow"></div>
+                             <div class="flowchart-node text-sm border-gray-400">Xác thực Mật Khẩu</div>
+                             <div class="flowchart-arrow"></div>
+                             <div class="flowchart-node text-sm border-gray-400">Tạo Access Token (JWT)</div>
+                        </div>
+                    </div>
+                    <div class="flowchart-arrow"></div>
+                    <div class="flowchart-node border-[#a05195] text-[#a05195] bg-pink-50">Trả về Phản Hồi (User Object / JWT Token)</div>
+                </div>
+                <p class="mt-6 text-center text-gray-600">Quy trình xác thực an toàn sử dụng JWT, đảm bảo chỉ người dùng hợp lệ mới có thể truy cập hệ thống.</p>
+            </div>
+        </section>
+        
+        <section id="task-lifecycle" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#d45087]">Vòng Đời Tác Vụ Tích Hợp AI</h2>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                 <p class="text-center text-gray-600 mb-8">Khi một tác vụ được tạo hoặc cập nhật, hệ thống không chỉ lưu trữ dữ liệu mà còn đồng bộ với cơ sở dữ liệu vector để phục vụ các tính năng AI trong tương lai.</p>
+                <div class="flex flex-col items-center">
+                    <div class="flowchart-node border-[#d45087] text-[#d45087] bg-red-50">Client Tạo / Cập Nhật Tác Vụ</div>
+                    <div class="flowchart-arrow"></div>
+                    <div class="flowchart-node border-[#f95d6a] text-[#f95d6a] bg-orange-50">TaskService Xử Lý Logic</div>
+                    <div class="flowchart-arrow"></div>
+                    <div class="flex flex-col md:flex-row justify-around w-full gap-4">
+                        <div class="flex-1 flex flex-col items-center text-center">
+                           <div class="text-5xl mb-2">💾</div>
+                           <h3 class="font-bold text-lg">Lưu Trữ Quan Hệ</h3>
+                           <p class="text-gray-500">Lưu thông tin tác vụ (tiêu đề, trạng thái, deadline) vào DB chính (SQLite).</p>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center text-center">
+                            <div class="text-5xl mb-2">🧠</div>
+                           <h3 class="font-bold text-lg">Nhúng Dữ Liệu Vector</h3>
+                           <p class="text-gray-500">Tạo và lưu trữ vector nhúng của tác vụ vào ChromaDB để tìm kiếm ngữ nghĩa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analytics" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">Phân Tích Hiệu Suất (Dữ liệu giả định)</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-center mb-4">Phân Bố Trạng Thái Tác Vụ</h3>
+                    <div class="chart-container"><canvas id="taskStatusChart"></canvas></div>
+                    <p class="mt-4 text-center text-gray-600">Biểu đồ Donut cho thấy tỷ lệ các tác vụ đang ở trạng thái "Cần Làm", "Đang Thực Hiện", và "Đã Hoàn Thành".</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-center mb-4">Số Tác Vụ Hoàn Thành Hàng Tháng</h3>
+                    <div class="chart-container"><canvas id="monthlyCompletionChart"></canvas></div>
+                    <p class="mt-4 text-center text-gray-600">Biểu đồ cột theo dõi xu hướng hiệu suất làm việc của người dùng qua các tháng.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai-features" class="mb-16">
+             <h2 class="text-3xl font-bold text-center mb-8 text-[#ff7c43]">Các Luồng Gợi Ý Từ AI</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                     <h3 class="text-xl font-bold text-center mb-4">Luồng Gợi Ý Thuộc Tính</h3>
+                     <div class="flex flex-col items-center">
+                         <div class="flowchart-node text-sm border-[#ff7c43] text-[#ff7c43]">Yêu cầu Gợi ý</div>
+                         <div class="flowchart-arrow"></div>
+                         <div class="flowchart-node text-sm border-[#ff7c43] text-[#ff7c43]">Query Tác vụ Tương tự (ChromaDB)</div>
+                         <div class="flowchart-arrow"></div>
+                         <div class="flowchart-node text-sm border-[#ff7c43] text-[#ff7c43]">Tổng hợp Gợi ý / LLM Reasoning</div>
+                         <div class="flowchart-arrow"></div>
+                         <div class="flowchart-node text-sm border-[#ff7c43] text-[#ff7c43]">Trả về Gợi ý (Category, Priority, Tags)</div>
+                     </div>
+                     <p class="mt-4 text-center text-gray-600">Hệ thống AI phân tích các tác vụ cũ để đưa ra gợi ý thông minh cho tác vụ mới.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-lg">
+                     <h3 class="text-xl font-bold text-center mb-4">Luồng Ước Tính Thời Gian</h3>
+                      <div class="flex flex-col items-center">
+                         <div class="flowchart-node text-sm border-[#ffa600] text-[#ffa600]">Yêu cầu Ước tính</div>
+                         <div class="flowchart-arrow"></div>
+                         <div class="flowchart-node text-sm border-[#ffa600] text-[#ffa600]">Trích xuất Đặc trưng (Features)</div>
+                         <div class="flowchart-arrow"></div>
+                         <div class="flowchart-node text-sm border-[#ffa600] text-[#ffa600]">Model Dự đoán (Linear Regression)</div>
+                         <div class="flowchart-arrow"></div>
+                         <div class="flowchart-node text-sm border-[#ffa600] text-[#ffa600]">Trả về Thời gian Ước tính & Độ tin cậy</div>
+                     </div>
+                      <p class="mt-4 text-center text-gray-600">Mô hình Machine Learning dự đoán thời gian cần thiết để hoàn thành một tác vụ dựa trên các thuộc tính của nó.</p>
+                </div>
+             </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#003f5c] text-white text-center p-6 mt-8">
+        <p>&copy; 2025 - Báo cáo được tạo bởi AI Researcher. Mọi thông tin đều dựa trên codebase được cung cấp.</p>
+    </footer>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const commonChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#4b5563',
+                        font: {
+                            family: "'Be Vietnam Pro', sans-serif",
+                            size: 14,
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        // Chart 1: Task Status Distribution
+        const taskStatusCtx = document.getElementById('taskStatusChart').getContext('2d');
+        new Chart(taskStatusCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Cần Làm', 'Đang Thực Hiện', 'Đã Hoàn Thành'],
+                datasets: [{
+                    label: 'Phân Bố Trạng Thái',
+                    data: [45, 25, 30],
+                    backgroundColor: [
+                        '#665191',
+                        '#ffa600',
+                        '#2f4b7c'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: commonChartOptions
+        });
+
+        // Chart 2: Monthly Task Completion
+        const monthlyCompletionCtx = document.getElementById('monthlyCompletionChart').getContext('2d');
+        new Chart(monthlyCompletionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'],
+                datasets: [{
+                    label: 'Tác Vụ Hoàn Thành',
+                    data: [65, 59, 80, 81, 56, 92],
+                    backgroundColor: '#2f4b7c',
+                    borderColor: '#003f5c',
+                    borderWidth: 2,
+                    borderRadius: 8,
+                    hoverBackgroundColor: '#665191'
+                }]
+            },
+            options: {
+                ...commonChartOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                         grid: {
+                            color: '#e5e7eb'
+                        },
+                        ticks: {
+                           color: '#4b5563'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                           color: '#4b5563'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
