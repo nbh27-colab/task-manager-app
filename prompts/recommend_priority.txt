@@ -1,0 +1,12 @@
+Dưới đây là một mô tả tác vụ:  
+"{description}"
+
+Hãy phân loại công việc này theo mức độ ưu tiên bằng 1 trong 4 nhóm Eisenhower:
+1. Quan trọng và khẩn cấp  
+2. Quan trọng nhưng không khẩn cấp  
+3. Không quan trọng nhưng khẩn cấp  
+4. Không quan trọng và không khẩn cấp
+
+Trả về số thứ tự từ 1 đến 4:
+
+Đáp án:

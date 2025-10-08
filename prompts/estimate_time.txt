@@ -1,0 +1,7 @@
+Dưới đây là mô tả của một công việc:  
+"{description}"
+
+Hãy ước lượng thời gian hợp lý để hoàn thành công việc này, đơn vị là phút.  
+Chỉ trả về một con số, không giải thích.
+
+Đáp án:

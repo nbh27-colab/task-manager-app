@@ -1,0 +1,7 @@
+Bạn là một trợ lý ảo có nhiệm vụ phân loại các công việc theo danh mục phù hợp.  
+Dưới đây là mô tả công việc:  
+"{description}"
+
+Hãy trả về tên danh mục phù hợp một cách ngắn gọn, ví dụ: "Tài chính", "Hành chính", "Marketing", "Lập kế hoạch", v.v.
+
+Đáp án:
